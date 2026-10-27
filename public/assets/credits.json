@@ -1,0 +1,68 @@
+[
+  {
+    "toolId": "cable",
+    "title": "Kabel UTP biru",
+    "author": "Hatschepsut (Polish Wikipedia)",
+    "source": "https://commons.wikimedia.org/wiki/File:UTP_cable-blue.jpg",
+    "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/4/40/UTP_cable-blue.jpg",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "path": "/assets/cable.jpg",
+    "changes": "Resized and JPEG optimized; metadata removed."
+  },
+  {
+    "toolId": "connector",
+    "title": "Konektor 8P8C pada kabel",
+    "author": "David Monniaux; crop by Pittigrilli",
+    "source": "https://commons.wikimedia.org/wiki/File:Ethernet_RJ45_connector_p1160054.jpg",
+    "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Ethernet_RJ45_connector_p1160054.jpg",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "path": "/assets/connector.jpg",
+    "changes": "Resized and JPEG optimized; metadata removed."
+  },
+  {
+    "toolId": "stripper",
+    "title": "Pengupas jaket kabel",
+    "author": "www.heimnetzwerke.net",
+    "source": "https://commons.wikimedia.org/wiki/File:Cable_stripper,_cable_tester_(RJ45,_RJ11),_LSA-Tool_and_crimping_tool.jpg",
+    "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/18/Cable_stripper%2C_cable_tester_%28RJ45%2C_RJ11%29%2C_LSA-Tool_and_crimping_tool.jpg",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "path": "/assets/stripper.jpg",
+    "changes": "Cropped from the toolkit photograph and resized; metadata removed."
+  },
+  {
+    "toolId": "cutter",
+    "title": "Tang potong diagonal",
+    "author": "Securiger (English Wikipedia)",
+    "source": "https://commons.wikimedia.org/wiki/File:Side_cutters.jpg",
+    "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Side_cutters.jpg?download=1",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "path": "/assets/cutter.jpg",
+    "changes": "Resized and JPEG optimized; metadata removed."
+  },
+  {
+    "toolId": "crimper",
+    "title": "Tang crimp modular 8P8C",
+    "author": "www.heimnetzwerke.net",
+    "source": "https://commons.wikimedia.org/wiki/File:Cable_stripper,_cable_tester_(RJ45,_RJ11),_LSA-Tool_and_crimping_tool.jpg",
+    "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/18/Cable_stripper%2C_cable_tester_%28RJ45%2C_RJ11%29%2C_LSA-Tool_and_crimping_tool.jpg",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "path": "/assets/crimper.jpg",
+    "changes": "Cropped from the toolkit photograph and resized; metadata removed."
+  },
+  {
+    "toolId": "tester",
+    "title": "LAN tester MAIN dan REMOTE",
+    "author": "www.heimnetzwerke.net",
+    "source": "https://commons.wikimedia.org/wiki/File:Cable_stripper,_cable_tester_(RJ45,_RJ11),_LSA-Tool_and_crimping_tool.jpg",
+    "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/18/Cable_stripper%2C_cable_tester_%28RJ45%2C_RJ11%29%2C_LSA-Tool_and_crimping_tool.jpg",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "path": "/assets/tester.jpg",
+    "changes": "Cropped from the toolkit photograph and resized; metadata removed."
+  }
+]

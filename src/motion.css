@@ -1,0 +1,330 @@
+/* Short action feedback. No delays, automatic answers, or continuous decoration. */
+@layer interaction {
+  .screen-enter {
+    animation: screen-arrive 280ms ease-out;
+  }
+  .button,
+  .wire-chip,
+  .touch-pin-target,
+  .hotspot {
+    transition:
+      transform 150ms ease,
+      box-shadow 180ms ease,
+      border-color 180ms ease;
+  }
+  .button:active:not(:disabled),
+  .wire-chip:active:not(:disabled),
+  .touch-pin-target:active:not(:disabled) {
+    transform: scale(0.98);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .button:hover:not(:disabled),
+    .wire-chip:hover:not(:disabled) {
+      transform: translateY(-2px);
+    }
+    .hotspot:hover {
+      box-shadow: 0 0 0 6px #0a8b9d20;
+    }
+  }
+  .wire-chip.selected .wire-swatch {
+    animation: wire-pick 240ms ease-out;
+  }
+  .conductor-line.is-filled {
+    animation: wire-place 320ms ease-out;
+    transform-origin: top center;
+  }
+  .touch-pin-target .wire-swatch {
+    animation: wire-pick 260ms ease-out;
+  }
+  .connector-body.is-crimped {
+    animation: crimp-press 320ms ease-out;
+  }
+  .connector-body.is-crimped .gold-contact {
+    animation: contact-lock 500ms ease-out;
+  }
+  .connector-stage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 9px 0 14px;
+    font-size: 12px;
+    color: #355b60;
+    animation: feedback-arrive 240ms ease-out;
+  }
+  .connector-stage > span {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #087f9c;
+    flex-shrink: 0;
+  }
+  [data-stage='crimped'] .connector-stage > span {
+    background: #26775d;
+  }
+  .tester-port.is-connected {
+    box-shadow: 0 0 0 3px #56bca24d;
+    animation: socket-connect 260ms ease-out;
+  }
+  .tester-cable-art.is-connected {
+    opacity: 1;
+    border-color: #3c9d85;
+    transition:
+      border-color 220ms ease,
+      opacity 220ms ease;
+  }
+  .led-item i.lit {
+    animation: led-arrive 420ms ease-out;
+  }
+  .signal-readout {
+    display: grid;
+    grid-template-columns: auto minmax(35px, 1fr) auto;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid #b7dccc;
+    background: #f0faf5;
+    border-radius: 9px;
+    padding: 12px 14px;
+    margin: 0 0 18px;
+    color: #265b4a;
+    font-size: 12px;
+  }
+  .signal-readout > span {
+    white-space: nowrap;
+  }
+  .signal-readout b {
+    font-family: Consolas, monospace;
+    font-size: 16px;
+  }
+  .signal-readout > small {
+    grid-column: 1/-1;
+    font-size: 12px;
+  }
+  .signal-track {
+    height: 4px;
+    position: relative;
+    background: #a5d3c0;
+    border-radius: 5px;
+  }
+  .signal-track > i {
+    position: absolute;
+    left: calc(100% - 9px);
+    top: -3px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #087f83;
+    box-shadow: 0 0 0 3px #087f8320;
+    animation: signal-travel 550ms ease-out;
+  }
+  .signal-readout.is-open {
+    border-color: #e4c8a1;
+    background: #fff8ed;
+    color: #795221;
+  }
+  .is-open .signal-track {
+    background: linear-gradient(to right, #d8b785 0 44%, transparent 44% 58%, #d8b785 58%);
+  }
+  .is-open .signal-track > i {
+    left: calc(44% - 10px);
+    background: #aa772b;
+    animation-name: signal-stop;
+  }
+  .wire-map-table tbody tr {
+    animation: row-arrive 180ms ease-out;
+  }
+  .evidence-checks .found svg,
+  .tool-answer > svg {
+    animation: evidence-found 400ms ease-out;
+  }
+  .tool-inspector,
+  .tool-answer,
+  .design-check .notice {
+    animation: feedback-arrive 250ms ease-out;
+  }
+  .success-banner {
+    animation: success-arrive 400ms ease-out;
+  }
+  .success-banner .pill {
+    animation: evidence-found 350ms 100ms ease-out;
+  }
+  .computer-power-led {
+    animation: power-glow 850ms ease-in-out 2;
+  }
+  .lab-signal-flow {
+    animation: lab-flow 1200ms linear 2;
+  }
+  .link-preview .lab-scene {
+    margin: 14px 0;
+  }
+  .link-preview .scene-caption {
+    font-size: 10px;
+    padding: 8px 10px;
+  }
+  .link-preview .scene-caption > span:last-child {
+    display: none;
+  }
+  .field > .question-help {
+    margin: 6px 0 0;
+    font-size: 12px;
+    color: #526b70;
+  }
+  @keyframes screen-arrive {
+    from {
+      opacity: 0.5;
+      transform: translateY(7px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes wire-pick {
+    0% {
+      transform: scale(0.9);
+    }
+    55% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  @keyframes wire-place {
+    from {
+      transform: translateY(14px) scaleY(0.65);
+      opacity: 0.4;
+    }
+    to {
+      transform: translateY(0) scaleY(1);
+      opacity: 1;
+    }
+  }
+  @keyframes crimp-press {
+    0%,
+    100% {
+      transform: scaleY(1);
+    }
+    45% {
+      transform: scaleY(0.975);
+    }
+  }
+  @keyframes contact-lock {
+    50% {
+      box-shadow: 0 0 9px #e8c55e;
+    }
+  }
+  @keyframes socket-connect {
+    50% {
+      transform: translateY(2px);
+    }
+  }
+  @keyframes led-arrive {
+    50% {
+      box-shadow:
+        0 0 0 5px #7ce2b733,
+        0 0 12px #7ce2b7;
+    }
+  }
+  @keyframes signal-travel {
+    from {
+      left: 0;
+    }
+    to {
+      left: calc(100% - 9px);
+    }
+  }
+  @keyframes signal-stop {
+    from {
+      left: 0;
+    }
+    to {
+      left: calc(44% - 10px);
+    }
+  }
+  @keyframes row-arrive {
+    from {
+      opacity: 0.3;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @keyframes feedback-arrive {
+    from {
+      opacity: 0.4;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @keyframes evidence-found {
+    0% {
+      transform: scale(0.75);
+    }
+    60% {
+      transform: scale(1.15);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  @keyframes success-arrive {
+    from {
+      opacity: 0.5;
+      box-shadow: 0 0 0 4px #3c9d8533;
+    }
+    to {
+      opacity: 1;
+      box-shadow: 0 0 0 0 transparent;
+    }
+  }
+  @keyframes power-glow {
+    50% {
+      opacity: 0.55;
+    }
+  }
+  @keyframes lab-flow {
+    from {
+      stroke-dashoffset: 56;
+    }
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+  /* Respect both the browser preference and the saved in-game setting. */
+  .reduce-motion *,
+  .reduce-motion *::before,
+  .reduce-motion *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation: none !important;
+      transition: none !important;
+      scroll-behavior: auto !important;
+    }
+  }
+  @media (max-width: 600px) {
+    .signal-readout {
+      padding: 11px;
+      gap: 8px;
+    }
+    .connector-stage {
+      text-align: center;
+      font-size: 12px;
+    }
+  }
+  @media print {
+    *,
+    *::before,
+    *::after {
+      animation: none !important;
+      transition: none !important;
+    }
+  }
+}

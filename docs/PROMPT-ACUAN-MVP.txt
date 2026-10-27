@@ -1,0 +1,288 @@
+Implementasikan game edukasi web "CrossLink: Cable Technician" berdasarkan rancangan yang sudah dibuat pada tahap sebelumnya.
+
+Peranmu adalah senior frontend engineer dan educational game developer. Tujuan utamanya adalah menghasilkan game edukasi yang benar-benar dapat dimainkan, bukan sekadar UI mockup.
+
+PERIKSA PROYEK TERLEBIH DAHULU:
+- Baca struktur folder, package.json, dan instruksi repositori yang tersedia.
+- Gunakan rancangan game dari tahap sebelumnya sebagai acuan.
+- Jika proyek kosong, inisialisasi React + Vite + TypeScript.
+- Jika sudah ada proyek, gunakan struktur dan teknologi yang kompatibel.
+- Jangan menghapus pekerjaan yang sudah ada tanpa alasan.
+- Buat README berisi cara instalasi, menjalankan aplikasi, dan menguji fitur.
+
+PRIORITAS IMPLEMENTASI:
+Selesaikan satu vertical slice yang dapat dimainkan dari awal hingga akhir sebelum menambahkan fitur dekoratif atau level tambahan.
+
+A. DESAIN VISUAL
+
+Buat game web 2D yang terasa seperti aplikasi simulasi teknisi jaringan.
+
+Arahan visual:
+- Tema dark navy dengan aksen cyan dan amber.
+- Tipografi modern dan mudah dibaca.
+- Layout rapi, konsisten, dan profesional.
+- Ilustrasi perangkat jaringan menggunakan SVG atau CSS.
+- Animasi ringan untuk kabel, konektor, dan indikator tester.
+- Panel misi, ruang kerja, panel informasi, dan indikator progres.
+- Responsif pada berbagai resolusi layar.
+- Hindari dekorasi berlebihan.
+- Hindari tampilan dashboard administrasi, template SaaS, atau kumpulan kartu kuis.
+
+Gunakan antarmuka berbahasa Indonesia.
+
+B. HALAMAN DAN ALUR GAME
+
+1. START SCREEN
+Tampilkan judul CrossLink: Cable Technician, deskripsi singkat, tombol Mulai Misi, dan informasi bahwa game merupakan simulasi pembelajaran.
+
+2. MISSION BRIEFING
+Tampilkan skenario dua komputer Ethernet lama tanpa Auto-MDI/MDIX yang gagal membentuk link.
+
+Tampilkan:
+- Situasi awal.
+- Informasi perangkat yang diketahui.
+- Tujuan tugas teknisi.
+- Panel catatan penyelidikan.
+
+Jangan langsung menyebut bahwa kabel crossover adalah solusi.
+
+3. INVESTIGATION LAB
+Pemain dapat memeriksa:
+- Dua komputer dan karakteristik port Ethernet.
+- Kabel jaringan yang tersedia.
+- Alat dan bahan pengkabelan.
+- Referensi T568A dan T568B.
+- Hasil pemeriksaan kabel awal, jika pemain memilih untuk memintanya.
+
+Kabel awal menggunakan hubungan 1→1 sampai 8→8.
+
+Pemain harus memilih jenis kabel yang sesuai dan alasan teknisnya.
+
+Bila jawaban keliru, tampilkan feedback yang membantu pemain meninjau bukti tanpa langsung membocorkan jawaban lengkap.
+
+4. CABLE WORKSHOP
+Buat simulator dua ujung kabel UTP.
+
+Setiap ujung mempunyai delapan slot pin dan delapan konduktor unik:
+- Putih-oranye
+- Oranye
+- Putih-hijau
+- Hijau
+- Putih-biru
+- Biru
+- Putih-cokelat
+- Cokelat
+
+Implementasikan interaksi drag-and-drop untuk memindahkan konduktor.
+
+Sediakan alternatif klik/tap untuk memilih dan menukar posisi kabel agar tetap bisa digunakan di perangkat layar sentuh atau melalui keyboard.
+
+Ketentuan:
+- Semua delapan konduktor harus tersedia pada setiap ujung.
+- Setiap konduktor hanya boleh menempati satu slot.
+- Pemain bebas menyusun kedua ujung.
+- Sediakan Undo, Reset, dan Periksa Rancangan.
+- Jangan menampilkan urutan jawaban lengkap secara otomatis.
+- Pemain dapat membuka referensi standar saat membutuhkan bantuan.
+
+Standar yang benar:
+
+T568A:
+1. Putih-hijau
+2. Hijau
+3. Putih-oranye
+4. Biru
+5. Putih-biru
+6. Oranye
+7. Putih-cokelat
+8. Cokelat
+
+T568B:
+1. Putih-oranye
+2. Oranye
+3. Putih-hijau
+4. Biru
+5. Putih-biru
+6. Hijau
+7. Putih-cokelat
+8. Cokelat
+
+Kabel crossover valid bila satu ujung memakai T568A dan ujung lain memakai T568B, tanpa mengharuskan standar tertentu berada di sisi kiri.
+
+5. VIRTUAL CRIMPING
+Setelah menyusun kabel, pemain menjalankan simulasi sederhana:
+- Menyiapkan kabel.
+- Merapikan konduktor.
+- Memasukkan konduktor ke konektor.
+- Memeriksa posisi dan selubung kabel.
+- Melakukan crimping.
+
+Buat interaksi yang memberikan pemahaman prosedur.
+
+Bila tahapan dilewati atau konduktor belum masuk dengan tepat, hasil tersebut dapat memengaruhi pengujian virtual.
+
+Jangan menyatakan bahwa keberhasilan crimping virtual membuktikan keterampilan fisik siswa.
+
+6. LAN TESTER SIMULATOR
+Implementasikan LAN tester virtual yang membaca sambungan berdasarkan kondisi kabel yang benar-benar dibuat pemain.
+
+PENTING:
+Jangan hardcode hasil pengujian sebagai animasi dekoratif.
+
+Buat model logika kabel dengan identitas delapan konduktor. Hitung hubungan pin dari posisi masing-masing konduktor di ujung A dan ujung B.
+
+Untuk crossover 10/100BASE-TX, pola yang benar:
+1→3
+2→6
+3→1
+4→4
+5→5
+6→2
+7→7
+8→8
+
+Tester harus dapat menampilkan:
+- Hubungan pin yang benar.
+- Susunan straight-through.
+- Salah urutan pin.
+- Jalur terbuka apabila kesalahan kontak disimulasikan.
+
+Gunakan diagram atau indikator tester yang terbaca dengan jelas.
+
+Pisahkan kesimpulan "pemetaan pin sesuai" dari "komunikasi jaringan berhasil". LAN tester sederhana tidak membuktikan seluruh aspek performa jaringan.
+
+7. TROUBLESHOOTING
+Buat setidaknya tiga kasus yang dapat diperiksa pemain:
+- Kabel dengan susunan straight-through pada skenario yang membutuhkan crossover.
+- Salah satu konduktor tidak terhubung.
+- Konduktor berada pada posisi pin yang salah.
+
+Untuk setiap kasus:
+- Tampilkan bukti hasil pemeriksaan.
+- Minta pemain menentukan kemungkinan penyebab.
+- Minta pemain memilih tindakan perbaikan.
+- Berikan feedback berdasarkan bukti.
+- Beri kesempatan mencoba kembali.
+
+Gunakan logika deterministik. Jangan menjadikan keberhasilan bergantung pada pilihan acak atau tebakan tanpa bukti.
+
+8. MISSION REPORT
+Di akhir permainan, tampilkan:
+- Masalah awal.
+- Jenis kabel yang dipilih.
+- Alasan pemilihan.
+- Susunan kedua ujung.
+- Hasil pemetaan pin.
+- Kesalahan yang ditemukan.
+- Perbaikan yang dilakukan.
+- Status penyelesaian misi.
+
+Sediakan fitur cetak laporan melalui print stylesheet browser.
+
+Jangan meminta nama lengkap atau data pribadi siswa pada versi awal.
+
+C. SISTEM PEMBELAJARAN
+
+Implementasikan hint bertingkat:
+Hint 1: Pertanyaan pengarah.
+Hint 2: Petunjuk konsep yang relevan.
+Hint 3: Penjelasan lebih spesifik jika pemain tetap mengalami kesulitan.
+
+Izinkan pemain mencoba kembali tanpa mengulang seluruh game.
+
+Sediakan panel informasi alat dan standar pengkabelan.
+
+Integrasikan fase PBL:
+- Orientasi masalah melalui briefing.
+- Pengorganisasian melalui catatan tugas penyelidikan.
+- Penyelidikan melalui investigasi, workshop, dan pengujian.
+- Penyajian melalui mission report.
+- Analisis dan evaluasi melalui troubleshooting dan refleksi.
+
+Jangan memaksakan semua fase PBL menjadi aktivitas individual dalam game. Diskusi kelompok, praktik fisik, dan presentasi tetap difasilitasi guru.
+
+D. ARSITEKTUR APLIKASI
+
+Gunakan:
+- React.
+- TypeScript strict.
+- Vite.
+- CSS modern atau solusi styling yang sesuai struktur proyek.
+- Komponen reusable.
+- Pemisahan game logic dari UI.
+- localStorage untuk progres lokal bila diperlukan.
+
+Pisahkan minimal:
+- Data materi pembelajaran.
+- Skenario misi.
+- Konstanta standar kabel.
+- Fungsi validasi dan pemetaan pin.
+- State permainan.
+- Komponen interaktif.
+- Laporan akhir.
+
+Hindari dependensi yang tidak diperlukan.
+
+E. KETENTUAN UI/UX
+
+- Gunakan label dan petunjuk berbahasa Indonesia yang mudah dipahami siswa SMK.
+- Berikan feedback visual setelah tindakan penting.
+- Semua tombol harus berfungsi.
+- Pastikan state permainan tidak hilang ketika berpindah antarlayar.
+- Gunakan navigasi yang jelas.
+- Jangan mengandalkan warna sebagai satu-satunya pembeda.
+- Berikan nama warna melalui label atau tooltip.
+- Pastikan interaksi kabel dapat digunakan tanpa drag-and-drop.
+- Tidak menggunakan placeholder yang dianggap sebagai fitur selesai.
+
+F. PENGUJIAN WAJIB
+
+Buat unit test untuk logika pengkabelan, setidaknya mencakup:
+
+1. T568A di ujung A dan T568B di ujung B menghasilkan pola crossover yang benar.
+2. T568B di ujung A dan T568A di ujung B juga menghasilkan crossover yang benar.
+3. Dua ujung dengan standar yang sama menghasilkan hubungan straight-through.
+4. Posisi konduktor yang tertukar menghasilkan pemetaan pin sesuai kondisi salah tersebut.
+5. Konduktor yang tidak kontak menghasilkan status open.
+6. Hasil validasi tidak bisa dinyatakan benar ketika susunan salah.
+7. Undo dan Reset menjaga konsistensi susunan delapan konduktor.
+8. Mission Report menggunakan data permainan yang sebenarnya.
+
+Jalankan pengujian dan build aplikasi.
+
+Jika lingkungan mendukung pengujian browser, lakukan pemeriksaan alur dari awal sampai akhir.
+
+Jangan menyatakan fitur berhasil diuji apabila pengujiannya belum dijalankan.
+
+G. TAHAP PENGEMBANGAN
+
+Kerjakan dalam urutan:
+1. Setup proyek dan struktur kode.
+2. Game state serta logika validasi kabel.
+3. Start Screen dan Mission Briefing.
+4. Investigation Lab.
+5. Cable Workshop interaktif.
+6. Crimping virtual sederhana.
+7. LAN Tester.
+8. Troubleshooting.
+9. Mission Report.
+10. Pengujian, perbaikan bug, dan polishing UI.
+
+Jika terdapat fitur kompleks yang menghambat penyelesaian MVP, prioritaskan gameplay inti dan tandai fitur tambahan secara jelas. Jangan mengganti fitur interaktif dengan tombol palsu.
+
+H. KRITERIA SELESAI
+
+Game dianggap selesai untuk versi MVP hanya jika:
+- Aplikasi dapat dijalankan.
+- Pemain dapat menyelesaikan alur utama dari briefing sampai laporan.
+- Penyusunan kabel dapat dilakukan secara interaktif.
+- Validasi kabel menggunakan hubungan pin nyata dari state permainan.
+- Tester membedakan susunan benar dan salah.
+- Troubleshooting mempunyai keputusan dan feedback yang berfungsi.
+- Game dapat digunakan untuk penyelidikan pembelajaran.
+- Seluruh tes dan build yang tersedia sudah dijalankan.
+- README menyediakan instruksi penggunaan.
+
+Setelah implementasi, berikan laporan singkat tentang fitur yang selesai, cara menjalankan proyek, hasil pengujian, serta keterbatasan yang masih ada.
+
+Mulai mengerjakan aplikasi sekarang. Jangan berhenti pada perencanaan atau menghasilkan mockup saja.

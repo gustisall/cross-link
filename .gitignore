@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.sites-runtime/
+*.tsbuildinfo
+coverage/
+test-output/
+.DS_Store
+.vercel/
+.env
+.env.*
+!.env.example
+*.log

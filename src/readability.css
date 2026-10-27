@@ -1,0 +1,1162 @@
+/* Keep learning text readable while allowing compact instrument annotations. */
+@layer notifications {
+  .toast {
+    pointer-events: none;
+  }
+  .toast > button {
+    pointer-events: auto;
+  }
+  @media (max-width: 600px) {
+    .toast {
+      top: calc(72px + env(safe-area-inset-top));
+      bottom: auto;
+    }
+  }
+}
+@layer readability {
+  :root {
+    font-size: 16px;
+  }
+  main p,
+  .dialog-body p,
+  .dialog-body li {
+    font-size: 15px;
+    color: #526861;
+  }
+  main p.fine-print,
+  .dialog-body p.fine-print {
+    font-size: 12px;
+    color: #607064;
+  }
+  .screen-title p,
+  .welcome-hero p {
+    font-size: 15px;
+  }
+  .button {
+    font-size: 13px;
+  }
+  .connector-body {
+    width: 480px;
+    min-width: 480px;
+  }
+  .connector-orientation {
+    max-width: 480px;
+  }
+  .pin-slot {
+    min-width: 48px;
+  }
+  .segmented button,
+  .select-label select {
+    min-height: 48px;
+  }
+  .toast > button {
+    min-height: 48px;
+    min-width: 48px;
+  }
+  .field > label,
+  label.field {
+    font-size: 14px;
+  }
+  .field > textarea,
+  .field > input,
+  .field > select {
+    font-size: 15px;
+  }
+  .check-control {
+    font-size: 13px;
+  }
+  .check-control small {
+    font-size: 12px;
+  }
+  .nav-item > span:nth-child(2) {
+    font-size: 13px;
+  }
+  .nav-item small {
+    font-size: 11px;
+  }
+  .tool-tabs span,
+  .shelf-tool span {
+    font-size: 12px;
+  }
+  .tool-tabs button {
+    min-height: 115px;
+  }
+  .shelf-tool {
+    min-height: 125px;
+  }
+  .wire-chip > span:nth-child(2) {
+    font-size: 12px;
+  }
+  .wire-chip small {
+    font-size: 10px;
+  }
+  .procedure-steps .button {
+    font-size: 12px;
+  }
+  .procedure-steps {
+    row-gap: 18px;
+  }
+  .tester-connections .check-control {
+    font-size: 12px;
+  }
+  .wire-map-table td {
+    font-size: 12px;
+  }
+  .wire-map-table th {
+    font-size: 10px;
+  }
+  .validation-grid strong {
+    font-size: 13px;
+  }
+  .validation-grid span {
+    font-size: 11px;
+  }
+  .numbered-list {
+    font-size: 14px;
+  }
+  .report-screen .panel p,
+  .report-wires {
+    font-size: 14px;
+  }
+  .report-heading p,
+  .report-screen .panel p.fine-print {
+    font-size: 12px;
+  }
+  .tp-table td,
+  .tp-result {
+    font-size: 12px;
+  }
+  .evidence-checks > div {
+    font-size: 13px;
+  }
+  .evidence-checks small {
+    font-size: 11px;
+  }
+  .board-column textarea {
+    font-size: 15px;
+  }
+  .utility-dock > button {
+    font-size: 12px;
+  }
+  .team-strip {
+    font-size: 11px;
+  }
+  @media (max-width: 1050px) {
+    .conductor-palette {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .procedure-steps {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .wire-chip {
+      flex-direction: row;
+      align-items: center;
+      min-height: 65px;
+    }
+    .wire-chip > .wire-swatch {
+      width: 14px;
+      height: 27px;
+    }
+  }
+  @media (max-width: 520px) {
+    .hotspot {
+      display: none;
+    }
+    .tool-tabs span {
+      font-size: 11px;
+    }
+    .shelf-tool {
+      min-height: 100px;
+    }
+    .shelf-tool span {
+      font-size: 10px;
+    }
+    .shelf-tool img {
+      height: 40px;
+    }
+    .procedure-steps .button {
+      font-size: 11px;
+    }
+    .tester-connections .check-control {
+      font-size: 12px;
+    }
+    .wire-map-table td {
+      font-size: 11px;
+    }
+    .case-tabs button strong {
+      font-size: 12px;
+    }
+    .case-tabs button {
+      min-height: 120px;
+    }
+    .team-strip {
+      font-size: 10px;
+    }
+  }
+  @media print {
+    main p,
+    .report-screen .panel p,
+    .report-wires {
+      font-size: 9pt;
+    }
+    .tp-table td,
+    .tp-result {
+      font-size: 8pt;
+    }
+    main p.fine-print,
+    .report-screen .panel p.fine-print {
+      font-size: 8pt;
+    }
+  }
+}
+
+@layer mobile-support {
+  :root {
+    --navy: #142235;
+    --teal: #087f9c;
+    --border: #d9e4eb;
+    background: #eff4f8;
+    color: #243d48;
+  }
+  html,
+  body,
+  #root,
+  .app {
+    min-width: 0;
+    width: 100%;
+  }
+  body {
+    overflow-x: clip;
+  }
+  .app {
+    min-height: 100svh;
+  }
+  :where(
+    .app-main,
+    main,
+    .panel,
+    .connector-panel,
+    .workbench-canvas,
+    .two-column > *,
+    .testing-layout > *,
+    .investigation-layout > *,
+    .start-grid > *
+  ) {
+    min-width: 0;
+  }
+  .topbar {
+    background: #142b3d;
+    border-color: #274253;
+  }
+  .breadcrumb,
+  .topbar .icon-button {
+    color: #a9c7d5;
+  }
+  .breadcrumb strong {
+    color: #edf7fc;
+  }
+  .save-indicator {
+    color: #c4dce6;
+  }
+  .profile-avatar {
+    color: #c9e9f2;
+    background: #26495b;
+    border-color: #3b6171;
+  }
+  .sidebar {
+    background: #102638;
+  }
+  .nav-item.active {
+    background: #173f52;
+    border-color: #2f6679;
+  }
+  .nav-item.active:before {
+    background: #65d3e7;
+  }
+  .button.primary {
+    background: #087f9c;
+    border-color: #087f9c;
+  }
+  .button.primary:hover:not(:disabled) {
+    background: #086c85;
+  }
+  .button.secondary:hover:not(:disabled) {
+    background: #edf7fb;
+    border-color: #a6cbdc;
+  }
+  .button.ghost {
+    color: #357084;
+  }
+  .button.ghost:hover:not(:disabled) {
+    background: #eaf5fa;
+  }
+  .tool-tabs button.active,
+  .shelf-tool.active,
+  .wire-chip.selected {
+    background: #e8f5fb;
+    border-color: #339ab7;
+  }
+  .wire-chip.selected {
+    box-shadow: 0 0 0 2px #32a5c123;
+  }
+  .case-tabs {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .case-tabs button {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+  .case-tabs .active {
+    background: #e6f4fa;
+    border-color: #6bacc4;
+  }
+  .workbench-canvas {
+    background-color: #142f43;
+    border-color: #2b5066;
+  }
+  .panel-title {
+    flex-wrap: wrap;
+  }
+  .panel-title > h2 {
+    min-width: 0;
+  }
+  .screen-title,
+  .report-heading {
+    overflow-wrap: anywhere;
+  }
+  .dialog {
+    max-height: min(92vh, 92dvh);
+  }
+  .dialog-body {
+    min-height: 0;
+  }
+  .dialog-body,
+  .table-scroll,
+  .connector-scroll {
+    -webkit-overflow-scrolling: touch;
+  }
+  .table-scroll {
+    overscroll-behavior-inline: contain;
+  }
+  :where(button, .check-control) {
+    touch-action: manipulation;
+  }
+  :where(input, textarea, select) {
+    scroll-margin-block: 100px;
+  }
+  .conductor-line {
+    animation: conductor-place 180ms ease-out;
+  }
+  .connector-body.is-crimped {
+    animation: connector-crimp 220ms ease-out;
+  }
+  @keyframes conductor-place {
+    from {
+      opacity: 0.55;
+      transform: translateY(9px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes connector-crimp {
+    0%,
+    100% {
+      transform: scale(1);
+    }
+    45% {
+      transform: scale(0.985);
+    }
+  }
+  .touch-placement-controls {
+    display: none;
+  }
+  .saved-test-context {
+    padding: 12px 14px;
+    border: 1px solid #bed8e5;
+    background: #eaf4fa;
+    border-radius: 7px;
+    color: #285d75;
+    font-size: 13px;
+    font-weight: 500;
+    overflow-wrap: anywhere;
+  }
+  .design-check {
+    margin-top: 21px;
+    border-top: 1px solid #d9e4eb;
+    padding-top: 20px;
+  }
+  .design-check > .fine-print {
+    margin-top: 10px;
+  }
+  .design-check .notice {
+    margin-bottom: 0;
+  }
+  .design-check .notice ul {
+    margin: 12px 0 0;
+    padding-left: 20px;
+  }
+  .design-check .notice li {
+    font-size: 13px;
+  }
+  .design-check .notice p {
+    font-size: 13px;
+    margin: 10px 0 0;
+  }
+
+  @media (max-width: 1050px) {
+    .case-tabs {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .case-tabs button {
+      min-height: 84px;
+    }
+  }
+  @media (max-width: 960px) {
+    body:has(.sidebar.is-open) {
+      overflow: hidden;
+    }
+    .sidebar {
+      height: 100dvh;
+      padding-top: max(22px, env(safe-area-inset-top));
+      padding-bottom: env(safe-area-inset-bottom);
+    }
+    .sidebar.is-open {
+      z-index: 80;
+    }
+    .mobile-close {
+      min-width: 48px;
+      min-height: 48px;
+      right: 8px;
+    }
+    .nav-backdrop {
+      z-index: 75;
+    }
+    .mobile-menu {
+      color: #b3d3e2;
+    }
+    main {
+      padding-bottom: calc(115px + env(safe-area-inset-bottom));
+    }
+    .app-footer {
+      padding-bottom: calc(100px + env(safe-area-inset-bottom));
+    }
+    .utility-dock {
+      bottom: calc(12px + env(safe-area-inset-bottom));
+    }
+    .toast {
+      bottom: calc(88px + env(safe-area-inset-bottom));
+    }
+    .app:has(textarea:focus, input:not([type='checkbox']):focus, select:focus) .utility-dock {
+      visibility: hidden;
+      pointer-events: none;
+    }
+    .dialog-backdrop {
+      padding-top: max(12px, env(safe-area-inset-top));
+      padding-bottom: max(12px, env(safe-area-inset-bottom));
+    }
+    .screen-footer {
+      align-items: stretch;
+    }
+    .screen-footer > span {
+      overflow-wrap: anywhere;
+    }
+  }
+  @media (max-width: 600px) {
+    :root {
+      font-size: 16px;
+    }
+    main {
+      padding: 20px 14px calc(112px + env(safe-area-inset-bottom));
+    }
+    .topbar {
+      gap: 7px;
+      padding-inline: 14px;
+      min-height: 64px;
+    }
+    .breadcrumb {
+      flex: 1;
+      min-width: 0;
+      gap: 7px;
+    }
+    .breadcrumb strong {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-size: 12px;
+    }
+    .topbar-actions {
+      flex-shrink: 0;
+      gap: 3px;
+    }
+    .save-indicator {
+      font-size: 10px;
+      gap: 5px;
+    }
+    .profile-avatar {
+      display: none;
+    }
+    .screen-title h1 {
+      font-size: clamp(25px, 7vw, 30px);
+      line-height: 1.25;
+    }
+    .screen-title p {
+      font-size: 15px;
+    }
+    .panel {
+      padding: 17px;
+    }
+    .panel-title {
+      gap: 9px;
+    }
+    .panel-title h2 {
+      font-size: 18px;
+    }
+    .panel-title > .pill {
+      max-width: 100%;
+      white-space: normal;
+    }
+    .team-strip {
+      gap: 9px 14px;
+      line-height: 1.6;
+    }
+    .team-strip > span {
+      min-width: 0;
+      overflow-wrap: anywhere;
+    }
+    .team-strip > span:first-child {
+      width: 100%;
+    }
+    .button {
+      min-height: 48px;
+      font-size: 14px;
+    }
+    input:not([type='checkbox']),
+    textarea,
+    select,
+    .field > input,
+    .field > textarea,
+    .field > select,
+    .intended-standard select,
+    .select-label select {
+      font-size: 16px;
+    }
+    .field > label,
+    label.field {
+      font-size: 14px;
+    }
+    .check-control {
+      min-height: 48px;
+      font-size: 14px;
+    }
+    .check-control small {
+      font-size: 12px;
+    }
+    .button-row {
+      gap: 10px;
+    }
+    .button-row .button {
+      flex: 1 1 auto;
+    }
+    .design-check > .button {
+      width: 100%;
+    }
+    .saved-test-context {
+      font-size: 13px;
+      line-height: 1.7;
+    }
+    .notice {
+      flex-wrap: wrap;
+      font-size: 14px;
+    }
+    .notice > span {
+      flex: 1;
+      min-width: 0;
+    }
+    .notice .button {
+      margin-left: 0;
+    }
+    .scene-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    .scene-actions .button {
+      font-size: 12px;
+    }
+    .tool-tabs {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 9px;
+    }
+    .tool-tabs button {
+      min-width: 0;
+      padding: 10px 7px;
+      min-height: 110px;
+    }
+    .tool-tabs span {
+      font-size: 12px;
+      overflow-wrap: anywhere;
+    }
+    .tool-photo {
+      height: 210px;
+    }
+    .tool-inspector {
+      grid-template-columns: 1fr;
+    }
+    .workshop-layout {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    .tool-shelf {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      align-items: stretch;
+      gap: 9px;
+      padding: 12px;
+    }
+    .shelf-tool {
+      margin: 0;
+      min-width: 0;
+      min-height: 112px;
+      flex-direction: column;
+      gap: 6px;
+      padding: 10px 6px;
+    }
+    .shelf-tool img {
+      width: 58px;
+      height: 53px;
+    }
+    .shelf-tool span {
+      font-size: 11px;
+      line-height: 1.5;
+    }
+    .connector-panel {
+      padding: 14px;
+    }
+    .workbench-top {
+      gap: 9px;
+      margin-bottom: 12px;
+    }
+    .workbench-top > .button {
+      min-height: 48px;
+      padding: 8px;
+      font-size: 13px;
+    }
+    .segmented {
+      flex: 1;
+    }
+    .segmented button {
+      flex: 1;
+      min-width: 0;
+      min-height: 48px;
+      font-size: 14px;
+    }
+    .workbench-canvas {
+      padding: 15px 11px;
+    }
+    .canvas-label {
+      font-size: 9px;
+      padding-left: 0;
+    }
+    .compact-connector {
+      padding-top: 14px;
+    }
+    .compact-connector .connector-orientation {
+      gap: 10px;
+      font-size: 9px;
+    }
+    .compact-connector .connector-scroll {
+      padding: 5px 0 0;
+      overflow: visible;
+    }
+    .compact-connector .connector-body {
+      width: 100%;
+      min-width: 0;
+      max-width: 340px;
+      height: 224px;
+      padding: 21px 10px 0;
+      margin: 0 auto;
+      border-radius: 8px 8px 26px 26px;
+    }
+    .compact-connector .pin-row {
+      gap: 2px;
+    }
+    .compact-connector .pin-column {
+      min-width: 0;
+    }
+    .compact-connector .pin-number {
+      font-size: 11px;
+    }
+    .compact-connector .gold-contact {
+      width: 12px;
+      height: 29px;
+    }
+    .compact-connector .pin-slot {
+      min-width: 0;
+      width: 100%;
+      height: 95px;
+    }
+    .compact-connector .pin-preview {
+      pointer-events: none;
+    }
+    .compact-connector .conductor-line {
+      width: 12px;
+      height: 73px;
+    }
+    .compact-connector .pin-code {
+      font-size: 9px;
+      bottom: 5px;
+    }
+    .compact-connector .connector-shoulder {
+      height: 35px;
+      font-size: 8px;
+      letter-spacing: 1px;
+    }
+    .compact-connector .cable-jacket {
+      height: 43px;
+      bottom: -20px;
+      width: 49px;
+      left: calc(50% - 24.5px);
+    }
+    .compact-connector .cable-jacket.loose {
+      bottom: -40px;
+    }
+    .compact-connector .orientation-note {
+      font-size: 11px;
+      margin: 32px 0 16px !important;
+      color: #b6ced7;
+    }
+    .touch-placement-controls {
+      display: block;
+      border: 1px solid #37677d;
+      border-radius: 9px;
+      padding: 11px;
+      background: #102b3e;
+      color: #e7f4fc;
+    }
+    .touch-placement-heading {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .touch-placement-heading strong {
+      display: block;
+      font-size: 14px;
+      line-height: 1.45;
+      color: #edf9ff;
+    }
+    .touch-placement-heading small {
+      display: block;
+      color: #a9c7d6;
+      font-size: 11px;
+      margin-top: 3px;
+    }
+    .touch-pin-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+    }
+    .touch-pin-card {
+      min-width: 0;
+      display: flex;
+      background: #edf6fb;
+      border: 1px solid #bdd5e2;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .touch-pin-target {
+      display: grid;
+      grid-template-columns: 14px minmax(0, 1fr);
+      align-content: center;
+      align-items: center;
+      gap: 4px 7px;
+      flex: 1;
+      min-width: 48px;
+      min-height: 72px;
+      padding: 8px;
+      background: transparent;
+      border: 0;
+      text-align: left;
+      color: #244b61;
+    }
+    .touch-pin-target:disabled {
+      opacity: 1;
+    }
+    .touch-pin-target.selected {
+      background: #ceeffa;
+    }
+    .touch-pin-number {
+      grid-column: 1/-1;
+      font-size: 12px;
+      font-weight: 700;
+      color: #236480;
+    }
+    .touch-pin-target .wire-swatch {
+      width: 12px;
+      height: 22px;
+    }
+    .touch-pin-name {
+      min-width: 0;
+      font-size: 11px;
+      line-height: 1.3;
+      overflow-wrap: anywhere;
+    }
+    .touch-pin-empty {
+      width: 12px;
+      height: 22px;
+      border-left: 1px dashed #8caebb;
+      margin-left: 5px;
+    }
+    .touch-pin-clear,
+    .touch-placement-cancel {
+      border: 0;
+      min-width: 48px;
+      min-height: 48px;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+    }
+    .touch-pin-clear {
+      background: #e1edf3;
+      color: #5b7788;
+      border-left: 1px solid #cbdfe9;
+    }
+    .touch-placement-cancel {
+      background: #294f66;
+      color: #d6f1ff;
+      border-radius: 6px;
+    }
+    .touch-placement-controls.is-placement {
+      position: fixed;
+      z-index: 55;
+      isolation: isolate;
+      opacity: 1;
+      background: #102b3e;
+      left: max(10px, env(safe-area-inset-left));
+      right: max(10px, env(safe-area-inset-right));
+      bottom: calc(83px + env(safe-area-inset-bottom));
+      padding: 14px;
+      box-shadow: 0 10px 40px #061c3566;
+      border-color: #58b8d6;
+      animation: placement-sheet 160ms ease-out;
+    }
+    .is-placement .touch-pin-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 7px;
+    }
+    .is-placement .touch-pin-target {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      justify-content: center;
+      min-height: 67px;
+      padding: 6px 3px;
+      gap: 4px;
+    }
+    .is-placement .touch-pin-target .wire-swatch {
+      width: 23px;
+      height: 7px;
+    }
+    .is-placement .touch-pin-empty {
+      width: 23px;
+      height: 7px;
+      border: 1px dashed #a0bac8;
+      margin: 0;
+    }
+    .is-placement .touch-pin-name {
+      font-size: 11px;
+    }
+    .conductor-palette {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 9px;
+    }
+    .wire-chip {
+      min-height: 68px;
+      padding: 10px;
+      gap: 9px;
+    }
+    .wire-chip > span:nth-child(2) {
+      font-size: 12px;
+    }
+    .wire-chip small {
+      font-size: 11px;
+    }
+    .procedure-steps {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px 12px;
+    }
+    .procedure-steps li {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      text-align: left;
+    }
+    .procedure-steps li:after {
+      display: none;
+    }
+    .procedure-steps li > span {
+      flex-shrink: 0;
+    }
+    .procedure-steps .button {
+      flex: 1;
+      max-width: none;
+      justify-content: flex-start;
+      align-items: center;
+      text-align: left;
+      font-size: 12px;
+      padding: 5px;
+    }
+    .depth-controls {
+      grid-template-columns: 1fr 1fr;
+    }
+    .depth-controls .check-control {
+      align-items: flex-start;
+      font-size: 13px;
+    }
+    .depth-controls small {
+      font-size: 11px;
+    }
+    .case-tabs {
+      gap: 9px;
+    }
+    .case-tabs button {
+      padding: 15px 13px;
+      min-height: 88px;
+    }
+    .case-tabs button > strong {
+      font-size: 14px;
+    }
+    .case-tabs button > span {
+      font-size: 11px;
+    }
+    .testing-layout {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .testing-layout > aside {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+    .tester-hardware {
+      gap: clamp(20px, 7vw, 37px);
+      padding: 23px 8px;
+    }
+    .tester-main {
+      width: 156px;
+      padding: 15px 16px;
+    }
+    .tester-remote {
+      width: 83px;
+      padding: 14px 9px;
+    }
+    .tester-settings {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      align-items: end;
+    }
+    .tester-settings > .button {
+      grid-column: 1/-1;
+    }
+    .tester-settings .select-label {
+      font-size: 12px;
+    }
+    .select-label select {
+      min-width: 0;
+      width: 100%;
+    }
+    .tester-connections {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+    }
+    .tester-connections .check-control {
+      font-size: 14px;
+    }
+    .wire-map-table td {
+      font-size: 12px;
+      padding: 10px 8px;
+    }
+    .wire-map-table th {
+      font-size: 10px;
+      padding: 10px 8px;
+    }
+    .validation-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .validation-grid strong {
+      font-size: 13px;
+    }
+    .validation-grid span {
+      font-size: 11px;
+    }
+    .screen-footer > .button {
+      width: 100%;
+    }
+    .utility-dock {
+      left: max(10px, env(safe-area-inset-left));
+      right: max(10px, env(safe-area-inset-right));
+      padding: 5px;
+    }
+    .utility-dock > button {
+      min-height: 48px;
+      font-size: 12px;
+      gap: 6px;
+      padding: 7px 5px;
+    }
+    .toast {
+      left: 12px;
+      right: 12px;
+      max-width: none;
+      padding: 12px;
+      font-size: 13px;
+      gap: 8px;
+    }
+    .toast > span {
+      min-width: 0;
+      overflow-wrap: anywhere;
+    }
+    .dialog-backdrop {
+      padding-inline: 9px;
+    }
+    .dialog {
+      max-height: 92dvh;
+      border-radius: 10px;
+    }
+    .dialog-heading {
+      padding: 12px 15px;
+    }
+    .dialog-body {
+      padding: 17px;
+    }
+    .dialog-heading h2 {
+      font-size: 18px;
+    }
+    .dialog-body .tester-main {
+      width: 146px;
+    }
+    .dialog-body .tester-remote {
+      width: 77px;
+    }
+    .dialog-body .tester-hardware {
+      gap: 24px;
+      padding-inline: 5px;
+    }
+    .reference-table td,
+    .reference-table th {
+      font-size: 12px;
+    }
+    .tp-table td,
+    .tp-result {
+      font-size: 13px;
+    }
+    .report-heading {
+      gap: 15px;
+    }
+    .map-comparison code {
+      font-size: 13px;
+      line-height: 2;
+    }
+    .physical-rubric td {
+      min-width: 115px;
+    }
+    .asset-credit > img {
+      width: 58px;
+    }
+    @keyframes placement-sheet {
+      from {
+        transform: translateY(8px);
+      }
+      to {
+        transform: translateY(0);
+      }
+    }
+  }
+  @media (max-width: 390px) {
+    .workbench-top > .button {
+      flex: 1 1 100%;
+      justify-content: flex-start;
+    }
+    .touch-placement-controls {
+      padding: 9px;
+    }
+    .touch-pin-grid {
+      gap: 6px;
+    }
+    .touch-pin-target {
+      padding: 7px;
+      gap: 4px 5px;
+    }
+    .touch-pin-clear {
+      min-width: 48px;
+    }
+    .touch-pin-name {
+      font-size: 10px;
+    }
+    .tester-main {
+      width: 143px;
+      padding-inline: 13px;
+    }
+    .tester-remote {
+      width: 76px;
+      padding-inline: 8px;
+    }
+    .tester-hardware {
+      gap: 22px;
+    }
+  }
+  @media (max-height: 520px) and (max-width: 960px) {
+    .dialog {
+      max-height: 94dvh;
+    }
+    .dialog-heading {
+      padding-block: 7px;
+    }
+    .touch-placement-controls.is-placement {
+      bottom: calc(71px + env(safe-area-inset-bottom));
+      padding: 10px;
+    }
+    .touch-placement-heading {
+      margin-bottom: 7px;
+    }
+    .is-placement .touch-pin-target {
+      min-height: 53px;
+    }
+    .is-placement .touch-placement-heading small {
+      display: none;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .conductor-line,
+    .connector-body.is-crimped,
+    .touch-placement-controls.is-placement {
+      animation: none;
+    }
+  }
+  .reduce-motion .conductor-line,
+  .reduce-motion .connector-body.is-crimped,
+  .reduce-motion .touch-placement-controls.is-placement {
+    animation: none;
+  }
+  @media print {
+    .touch-placement-controls {
+      display: none !important;
+    }
+    .app {
+      min-height: 0;
+    }
+    .app-footer,
+    main {
+      padding-bottom: 0;
+    }
+    .physical-rubric td {
+      min-width: 0;
+    }
+  }
+}

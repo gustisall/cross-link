@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#142235" />
+    <meta
+      name="description"
+      content="CrossLink: simulator teknisi kabel jaringan untuk belajar melalui investigasi, perakitan, dan pengujian."
+    />
+    <title>CrossLink — Cable Technician</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body>
+    <section id="file-help" hidden aria-labelledby="file-help-title">
+      <style>
+        #file-help[hidden] {
+          display: none;
+        }
+        #file-help {
+          max-width: 620px;
+          margin: 10vh auto;
+          padding: 32px;
+          border: 1px solid #d8e4df;
+          border-radius: 12px;
+          background: #f3f6fa;
+          color: #243d48;
+          font:
+            16px/1.7 system-ui,
+            sans-serif;
+        }
+        #file-help-title {
+          font-size: 26px;
+          font-weight: 700;
+          line-height: 1.3;
+        }
+        #file-help a {
+          display: inline-block;
+          padding: 12px 18px;
+          border-radius: 7px;
+          background: #087f83;
+          color: white;
+          text-decoration: none;
+        }
+        #file-help code {
+          padding: 2px 5px;
+          background: #e4ece9;
+          border-radius: 3px;
+        }
+      </style>
+      <div id="file-help-title" role="heading" aria-level="1">Buka CrossLink melalui launcher</div>
+      <p>File ini perlu dibuka melalui server lokal agar game dapat berjalan.</p>
+      <ol>
+        <li>Kembali ke folder game.</li>
+        <li>Klik dua kali <code>Start-CrossLink.cmd</code>.</li>
+        <li>Browser akan terbuka otomatis. Biarkan jendela server tetap terbuka selama bermain.</li>
+      </ol>
+      <p>Jika server sudah berjalan, gunakan tombol ini:</p>
+      <a href="http://127.0.0.1:5173/">Buka game CrossLink</a>
+    </section>
+    <div id="root"></div>
+    <script>
+      if (window.location.protocol === 'file:') {
+        document.getElementById('file-help').hidden = false
+      }
+    </script>
+    <script type="module" src="/src/main.tsx"></script>
+    <noscript
+      >Aktifkan JavaScript, lalu jalankan Start-CrossLink.cmd dan buka
+      http://127.0.0.1:5173/.</noscript
+    >
+  </body>
+</html>
